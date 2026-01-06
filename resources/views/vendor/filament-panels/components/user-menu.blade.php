@@ -10,6 +10,12 @@
     $logoutItem = $items['logout'] ?? null;
 
     $items = \Illuminate\Support\Arr::except($items, ['account', 'logout', 'profile']);
+
+    // Get institution logo from user's institution
+    $institutionLogo = null;
+    if ($user && $user->institution) {
+        $institutionLogo = $user->institution->logo;
+    }
 @endphp
 
 {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::USER_MENU_BEFORE) }}
@@ -38,13 +44,19 @@
     {{-- Garis pemisah --}}
     <div class="w-px h-8 bg-gray-300"></div>
 
-    {{-- Logo kanan --}}
+    {{-- Logo kanan - Institution Logo dari database --}}
     <div class="flex items-center">
-        <img 
-        src="{{ asset('storage/logos/institutions/01K96R6V3ZP85JT0SBC60Y6KAT.png') }}" 
-        alt="institution-logo" 
-        class="h-8 w-auto"
-    />
+        @if ($institutionLogo)
+            <img 
+                src="{{ asset('storage/' . $institutionLogo) }}" 
+                alt="{{ $user->institution->name ?? 'Institution' }} Logo" 
+                class="h-8 w-auto"
+            />
+        @else
+            <div class="h-8 w-8 rounded bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                <x-heroicon-o-building-office class="h-5 w-5 text-gray-400" />
+            </div>
+        @endif
     </div>
 </div>
 

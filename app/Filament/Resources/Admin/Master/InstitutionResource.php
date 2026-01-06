@@ -25,6 +25,11 @@ class InstitutionResource extends Resource
     protected static ?string $slug = 'institusi';
     protected static ?int $navigationSort = 999;
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
     public static function form(Form $form): Form
     {
         return $form->schema([

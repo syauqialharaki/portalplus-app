@@ -24,6 +24,11 @@ class PositionResource extends Resource
     protected static ?string $pluralModelLabel = 'Jabatan';
     protected static ?int $navigationSort = 1001;
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
     // 🧩 FORM (CREATE / EDIT)
     public static function form(Form $form): Form
     {

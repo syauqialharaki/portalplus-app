@@ -37,7 +37,7 @@ class Login extends BaseLogin
     protected function getLoginFormComponent(): Component
     {
         return TextInput::make('login')
-            ->label('NIP atau Email Workspace')
+            ->label('NIP atau Email Lembaga')
             ->required()
             ->autocomplete('username')
             ->autofocus()
@@ -50,7 +50,7 @@ class Login extends BaseLogin
                             !filter_var($value, FILTER_VALIDATE_EMAIL) &&
                             !preg_match('/^\d{12}$/', $value)
                         ) {
-                            $fail('Silakan isi dengan email yang valid atau NIP 12 digit.');
+                            $fail('Silakan isi dengan NIP atau email yang valid.');
                         }
                     };
                 },
@@ -66,6 +66,7 @@ class Login extends BaseLogin
             ->label(__('filament-panels::pages/auth/login.form.password.label'))
             ->hint(filament()->hasPasswordReset() ? new HtmlString(Blade::render('<x-filament::link :href="filament()->getRequestPasswordResetUrl()" tabindex="3"> {{ __(\'filament-panels::pages/auth/login.actions.request_password_reset.label\') }}</x-filament::link>')) : null)
             ->password()
+            ->revealable()
             ->autocomplete('current-password')
             ->required()
             ->extraInputAttributes(['tabindex' => 2]);

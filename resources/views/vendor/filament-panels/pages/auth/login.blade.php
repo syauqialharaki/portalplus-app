@@ -4,12 +4,12 @@
         style="background-image: url('/images/bg-login.png');background-size: cover; background-repeat: no-repeat; background-position: center">
         <div class="flex items-center justify-center my-10">
             <div class="flex items-center justify-center gap-6 p-4">
-                <img src="{{ asset('storage/logos/institutions/01K96R6V3ZP85JT0SBC60Y6KAT.png') }}" alt="institution-logo" class="h-16 w-auto" />
-                <div class="w-px h-16 bg-gray-300"></div>
+                {{-- <img src="{{ asset('storage/logos/institutions/01K96R6V3ZP85JT0SBC60Y6KAT.png') }}" alt="institution-logo" class="h-16 w-auto" />
+                <div class="w-px h-16 bg-gray-300"></div> --}}
                 <div class="flex flex-col items-center">
-                    <img src="/images/brand-logo.png" alt="brand-logo" class="h-10 w-auto" />
+                    <img src="/images/brand-logo.png" alt="brand-logo" class="h-16 w-auto" />
                     <p class="text-xs text-gray-500 mt-1 leading-tight">
-                    Sistem Kepegawaian STT-NF
+                    Satu Portal Sistem Kepegawaian
                     </p>
                 </div>
             </div>

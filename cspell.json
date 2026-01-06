@@ -1,0 +1,25 @@
+{
+  "version": "0.2",
+  "language": "en,id",
+  "words": [
+    "Filament",
+    "filament",
+    "NIP",
+    "tabindex",
+    "autocomplete",
+    "Blade",
+    "HtmlString",
+    "Harrin",
+    "Livewire",
+    "atau",
+    "Silakan",
+    "dengan"
+  ],
+  "ignorePaths": [
+    "vendor",
+    "node_modules",
+    "storage",
+    "public",
+    ".git"
+  ]
+}

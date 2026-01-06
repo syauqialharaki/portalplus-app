@@ -2,8 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::redirect('/', '/admin');
+// Panel Filament sudah di root path, tidak perlu redirect
